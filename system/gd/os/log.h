@@ -61,6 +61,9 @@ static_assert(LOG_TAG != nullptr, "LOG_TAG is null after header inclusion");
     if (bluetooth::common::InitFlags::GetLogLevelForTag(LOG_TAG) >= LOG_TAG_DEBUG) { \
       ALOGD("%s:%d %s: " fmt, __FILE__, __LINE__, __func__, ##args);                 \
     }                                                                                \
+    else {                                                                    \
+      ALOGD("DBG: " fmt, ##args);                                             \
+    }                                                                         \
   } while (false)
 #endif /* __has_include("src/init_flags.rs.h") */
 
